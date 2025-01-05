@@ -1,6 +1,6 @@
 import GrandChild from "./GrandChild";
 export default function ChildComp(props) {
-  return (<><h1>Hello Child, {props.name}</h1>
+  return (<><p>Hello Child, {props.name}</p>
     <GrandChild
       name={props.name}/>
       </>
