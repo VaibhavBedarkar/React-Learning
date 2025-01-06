@@ -9,6 +9,7 @@ let userInput = prompt('type a number');
 
 return (
 <div>
+<h1>Concept: Events</h1>
 <h1>Task: Add a button and handle a click event</h1>
 <button onClick={handleClick}>Guess the number between 1 and 3</button>
 </div>
