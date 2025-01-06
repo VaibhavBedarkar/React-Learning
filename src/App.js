@@ -6,6 +6,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import States from './component/States';
 import VideoPlayerExample from './component/VideoPlayerExample';
 import AudioDemo from './component/AudioDemo';
+import Calculator from './component/Calculator';
 function App() {
   return (
     <>    
@@ -15,6 +16,7 @@ function App() {
         <Link to="/states" className="nav-item">States</Link>
         <Link to="/video" className="nav-item">Video</Link>
         <Link to="/sound" className="nav-item">Sound</Link>
+        <Link to="/calculator" className="nav-item">Calculator</Link>
     </nav>
       <Routes> 
         <Route path="/" element={<EventDemo/>}></Route>
@@ -22,6 +24,7 @@ function App() {
         <Route path="/states" element={<States/>}></Route>
         <Route path="/video" element={<VideoPlayerExample/>}></Route>
         <Route path="/sound" element={<AudioDemo/>}></Route>
+        <Route path="/calculator" element={<Calculator/>}></Route>
       </Routes>   
     </>   
   );
