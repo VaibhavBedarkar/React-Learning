@@ -1,0 +1,91 @@
+import java.util.*;
+import java.io.*;
+class Main{
+    static class FastReader
+  {
+    BufferedReader br;
+    StringTokenizer st;
+    public FastReader()
+    {
+      br = new BufferedReader(new InputStreamReader(System.in));
+    }
+    String next()
+    {
+      while (st == null || !st.hasMoreElements()){
+        try { st = new StringTokenizer(br.readLine()); }
+        catch (IOException e) { e.printStackTrace(); }
+      }
+      return st.nextToken();
+    }
+    int nextInt() { return Integer.parseInt(next()); }
+    long nextLong() { return Long.parseLong(next()); }
+    double nextDouble(){ return Double.parseDouble(next()); }
+    String nextLine(){
+      String str = "";
+      try { str = br.readLine(); }
+      catch (IOException e) { e.printStackTrace(); }
+      return str;
+    }
+  }
+  public static String[] sortByName(String[] names,int[] marks,int n){
+      for(int i=0; i<names.length-1; i++){
+          for(int j=0; j<names.length-i-1; j++){
+              if(names[j+1].compareTo(names[j])<-1){
+                  String temp = names[j];
+                  names[j] = names[j+1];
+                  names[j+1] = temp;
+                  
+                  int t =marks[j];
+                  marks[j] = marks[j+1];
+                  marks[j+1] = t;
+              }
+          }
+      }
+      return names;
+  }
+  public static int[] sortByMarks(int[] marks,String[] names,int n){
+      for(int i=0; i<marks.length-1; i++){
+          for(int j=0; j<marks.length-i-1; j++){
+              if(marks[j]<marks[j+1]){
+                  String temp = names[j];
+                  names[j] = names[j+1];
+                  names[j+1] = temp;
+                  
+                  int t =marks[j];
+                  marks[j] = marks[j+1];
+                  marks[j+1] = t;
+              }
+          }
+      }
+      return marks;
+  }
+  
+  public static void makeLeaderboard(int[] marks,String[] names,int n){
+      int rank = 1;
+      int temp = marks[0];
+      
+      for(int i=0; i<n; i++){
+          if(temp!=marks[i]){
+              rank = i+1;
+          }
+          System.out.println(rank+" "+names[i]);
+          temp = marks[i];
+      }
+  }
+  public static void main(String[] args){
+      FastReader fr = new FastReader();
+      
+      int n = fr.nextInt();
+      int[] marks = new int[n];
+      String[] names = new String[n];
+      
+      for(int i=0; i<n; i++){
+          names[i] = fr.next();
+          marks[i] = fr.nextInt();
+      }
+      sortByName(names,marks,n);
+      sortByMarks(marks,names,n);
+      makeLeaderboard(marks,names,n);
+  }
+
+}
